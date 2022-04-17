@@ -127,7 +127,7 @@ function displayData(data) {
   document.querySelector("#container").innerHTML = null;
   data.map(function (elem) {
     main_div = document.createElement("div");
-
+    main_div.style.textAlign = "center"
     poster_div = document.createElement("img");
     poster_div.src = `${intial_image + elem.poster_path}`;
 
@@ -137,10 +137,20 @@ function displayData(data) {
     realease_date_div = document.createElement("p");
     realease_date_div.innerText = `IMDB Rating: ${elem.vote_average}`;
 
+    let recommended = document.createElement("div")
+    recommended.style.color = "red"
+    
+    if(elem.vote_average > 8){
+      recommended.innerText = "Recommended"
+    }
+    else {
+      recommended.innerText = ""
+    }
+
     imdb_rating_div = document.createElement("p");
     imdb_rating_div.innerText = `Realese Date: ${elem.release_date}`
 
-    main_div.append(poster_div, name_div, realease_date_div, imdb_rating_div);
+    main_div.append(poster_div, name_div, realease_date_div, recommended, imdb_rating_div );
 
     document.querySelector("#container").append(main_div);
   });
