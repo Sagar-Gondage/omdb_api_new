@@ -132,7 +132,7 @@ function displayData(data) {
     poster_div.src = `${intial_image + elem.poster_path}`;
 
     name_div = document.createElement("h2");
-    name_div.innerText = `Realese Date ${elem.original_title}`;
+    name_div.innerText = `${elem.original_title}`;
 
     realease_date_div = document.createElement("p");
     realease_date_div.innerText = `IMDB Rating: ${elem.vote_average}`;
